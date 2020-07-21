@@ -42,11 +42,11 @@ pipeline {
                     env.E2E_TEST_ROUTE = "oc get route/test-${E2E_APP_NAME} --template='{{.spec.host}}' -n ${PROJECT_NAMESPACE}".execute().text.minus("'").minus("'")
                 }
 
-                echo '### checkout correct revision ###'
-                sh 'git checkout ${JENKINS_TAG}'
+                echo '### give argocd a moment to catch up ###'
+                sh 'sleep 20'
 
                 echo '### Install deps ###'
-                sh 'npm install'
+                sh 'npm ci'
 
                 echo '### Seed the api ###'
                 // sh './seed-backend.sh'
