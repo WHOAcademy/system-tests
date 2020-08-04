@@ -9,11 +9,10 @@ pipeline {
 
         // GLobal Vars
         E2E_APP_NAME = "learning-experience-platform"
-        JENKINS_TAG = "master"
         PROJECT_NAMESPACE = "labs-test"
 
         // Config repo managed by ArgoCD details
-        ARGOCD_CONFIG_REPO = "github.com/who-lxp/lxp-config.git"
+        ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config.git"
         ARGOCD_CONFIG_REPO_PATH = "lxp-deployment/values-staging.yaml"
         ARGOCD_CONFIG_REPO_BRANCH = "master"
 
