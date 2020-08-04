@@ -2,8 +2,8 @@
   "name": "lxp-system-tests",
   "version": "0.0.0",
   "scripts": {
-    "e2e": "ng e2e",
-    "e2e:headless": "ng e2e --protractor-config e2e/protractor.conf.headless.js ",
+    "e2e": "export E2E_TEST_ROUTE=localhost:8080 && ng e2e",
+    "e2e:headless": "export E2E_TEST_ROUTE=localhost:8080 && ng e2e --protractor-config e2e/protractor.conf.headless.js ",
     "e2e:ci": "ng e2e --protractor-config e2e/protractor.conf.ci.js "
   },
   "private": true,

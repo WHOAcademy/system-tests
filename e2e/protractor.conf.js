@@ -6,7 +6,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://localhost:8080/',
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
@@ -14,6 +14,7 @@ exports.config = {
     require: ['./src/steps/**/*.steps.ts']
   },
   onPrepare() {
+    browser.ignoreSynchronization = true;
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
