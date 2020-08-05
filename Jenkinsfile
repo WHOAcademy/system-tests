@@ -2,8 +2,10 @@ pipeline {
     agent {
         label "master"
     }
-    parameters([
-        string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',)
+    properties([
+        parameters([
+            string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',)
+        ])
     ])
     environment {
         // JOB TAKES TWO PARAMS:
