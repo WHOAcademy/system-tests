@@ -25,9 +25,9 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '50', artifactNumToKeepStr: '2'))
         timeout(time: 15, unit: 'MINUTES')
         ansiColor('xterm')
-        parameters([
+        parameters {
             string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',)
-        ])
+        }
     }
 
     stages {
