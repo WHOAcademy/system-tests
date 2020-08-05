@@ -27,8 +27,8 @@ pipeline {
         ansiColor('xterm')
         properties([
             parameters([
-                string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',
-                string(name: 'VERSION', defaultValue: '', description: 'The version of the given app to promote to if the job is succesful', )
+                string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful')
+                string(name: 'VERSION', defaultValue: '', description: 'The version of the given app to promote to if the job is succesful')
             ])
         ])
     }
