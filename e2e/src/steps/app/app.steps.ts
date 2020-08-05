@@ -9,12 +9,12 @@ Before(() => {
   page = new AppPage();
 });
 
-Given(/^I am on the home page$/, async () => {
+Given(/^I know the address of LXP$/, async () => {
   await page.navigateTo();
 });
 
-When(/^I do nothing$/, () => {});
+When(/^I navigate to it$/, () => {});
 
-Then(/^I should see welcome message$/, async () => {
+Then(/^I am displayed the landing page$/, async () => {
   expect(await page.getTitleText()).to.contains('🐭Welcome to the');
 });

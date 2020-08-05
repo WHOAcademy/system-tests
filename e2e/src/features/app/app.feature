@@ -1,7 +1,7 @@
-Feature: Go to the home
+Feature: Landing page
   Display the title
 
-  Scenario: Home Page
-    Given I am on the home page
-    When I do nothing
-    Then I should see welcome message
+  Scenario: show landing page
+    Given I know the address of LXP
+    When I navigate to it
+    Then I am displayed the landing page
