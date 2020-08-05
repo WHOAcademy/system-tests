@@ -2,11 +2,6 @@ pipeline {
     agent {
         label "master"
     }
-    properties([
-        parameters([
-            string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',)
-        ])
-    ])
     environment {
         // JOB TAKES TWO PARAMS:
         // APP_NAME: to know what app to update in git if successful
@@ -30,6 +25,9 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '50', artifactNumToKeepStr: '2'))
         timeout(time: 15, unit: 'MINUTES')
         ansiColor('xterm')
+        parameters([
+            string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',)
+        ])
     }
 
     stages {
