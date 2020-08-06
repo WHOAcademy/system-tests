@@ -45,7 +45,10 @@ pipeline {
                 }
 
                 echo '### give argocd a moment to catch up ###'
-                sh 'sleep 20'
+                sh '''
+                    printenv 
+                    sleep 20
+                '''
 
                 echo '### Install deps ###'
                 sh 'npm ci'
@@ -95,6 +98,9 @@ pipeline {
             }
             when {
                 expression { GIT_BRANCH ==~ /(.*master)/ }
+            }
+            options {
+                skipDefaultCheckout(true)
             }
             steps {
                 sh  '''
