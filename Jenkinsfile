@@ -19,15 +19,15 @@ pipeline {
         // Credentials bound in OpenShift
         GIT_CREDS = credentials("${OPENSHIFT_BUILD_NAMESPACE}-git-auth")
     }
-
+    parameters {
+        string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful')
+        string(name: 'VERSION', defaultValue: '', description: 'The version of the given app to promote')
+    }
     // The options directive is for configuration that applies to the whole job.
     options {
         buildDiscarder(logRotator(numToKeepStr: '50', artifactNumToKeepStr: '2'))
         timeout(time: 15, unit: 'MINUTES')
         ansiColor('xterm')
-        parameters {
-            string(name: 'APP_NAME', defaultValue: '', description: 'The service or app to be promote if successful',)
-        }
     }
 
     stages {
