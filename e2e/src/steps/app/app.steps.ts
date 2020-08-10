@@ -16,5 +16,5 @@ Given(/^I know the address of LXP$/, async () => {
 When(/^I navigate to it$/, () => {});
 
 Then(/^I am displayed the landing page$/, async () => {
-  expect(await page.getTitleText()).to.contains('🐭Welcome to the');
+  expect(await page.getTitleText()).to.contains('🐭Latest health knowledge and evidence');
 });
