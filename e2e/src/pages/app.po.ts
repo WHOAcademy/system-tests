@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
@@ -7,5 +7,17 @@ export class AppPage {
 
   getTitleText(): Promise<string> {
     return element(by.css('#app > div.home > div > h2')).getText() as Promise<string>;
+  }
+
+  // Show Courses
+
+  getTheFirstCardLabel() {
+    const selector = '#courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label';
+    return element(by.css(selector));
+  }
+
+  getAllCourses() {
+    const selector = '#courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label';
+    return element.all(by.css(selector));
   }
 }
