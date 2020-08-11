@@ -14,7 +14,6 @@ Given(/^I go to LXP$/, async () => {
 });
 
 When(/^I hit sign up button$/, async () => {
-  // TODO: running headless `npm run e2e:headless` breaks here
   // Get button by ID then hit click
   await utils.getById('lxp-signup').click();
 });

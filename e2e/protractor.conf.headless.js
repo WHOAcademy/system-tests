@@ -6,7 +6,7 @@ const overRideConfig = {
   capabilities: {
     'browserName': 'chrome',
     chromeOptions: {
-      args: ["--headless", "--disable-gpu", "--no-sandbox"]
+      args: ['--window-size=1280x800', "--headless", "--disable-gpu", "--no-sandbox"]
     }
   }
 }
