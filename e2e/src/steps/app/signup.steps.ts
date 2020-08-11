@@ -14,13 +14,12 @@ Given(/^I go to LXP$/, async () => {
 });
 
 When(/^I hit sign up button$/, async () => {
+  // TODO: running headless `npm run e2e:headless` breaks here
   // Get button by ID then hit click
   await utils.getById('lxp-signup').click();
 });
 
 Then(/^I am taken to sign up page$/, async () => {
   expect(await utils.getUrlPath()).to.contain('keycloak');
-  utils.waitForId('kc-title-page').then(() => {
-    expect(utils.getById('kc-title-page').getText()).to.equal('Registration');
-  });
+  expect(await utils.getById('kc-page-title').getText()).to.equal('Register');
 });
