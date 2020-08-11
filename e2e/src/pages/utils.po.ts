@@ -12,6 +12,10 @@ export class Utils {
     return element(by.css(`#${id}`));
   }
 
+  getByTagName(tagName: string) {
+    return element(by.tagName(tagName));
+  }
+
   waitForAng() {
     return browser.waitForAngular();
   }
