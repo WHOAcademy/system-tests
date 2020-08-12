@@ -12,12 +12,18 @@ export class AppPage {
   // Show Courses
 
   getTheFirstCardLabel() {
-    const selector = '#courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label';
+    const selector = '#course-card-0 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1)';
     return element(by.css(selector));
   }
 
   getAllCourses() {
     const selector = '#courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label';
     return element.all(by.css(selector));
+  }
+
+  // Onboarding
+
+  getOnBoardingTitleText(): Promise<string> {
+    return element(by.css('#app > div.about > h2')).getText() as Promise<string>;
   }
 }

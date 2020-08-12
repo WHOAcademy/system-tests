@@ -13,13 +13,13 @@ Before(() => {
 });
 
 Given(/^There are topics in system$/, async () => {
-  await utils.navigateToPath('');
-});
-
-When(/^I navigate through the onboarding page$/, async () => {
   await utils.navigateToPath('onboarding');
 });
 
+When(/^I navigate through the onboarding page$/, async () => {
+  await utils.waitForId("app > .about");
+});
+
 Then(/^I am shown available topics$/, async () => {
-  expect(await utils.getByTagName("h2").getText()).contains('Select a minimum of 3 interests');
+  expect(await page.getOnBoardingTitleText()).contains('Select a minimum of 3 interests');
 });

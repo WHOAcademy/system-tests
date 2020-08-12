@@ -17,7 +17,7 @@ Given(/^I'm an un-authenticated user$/, async () => {
 });
 
 When(/^I go to the landing page$/, async () => {
-
+  await utils.waitForId("course-card-0");
 });
 
 Then(/^I am shown all the courses$/, async () => {
