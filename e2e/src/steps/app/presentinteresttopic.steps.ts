@@ -17,7 +17,31 @@ Before(() => {
 
 Given(/^There are topics in system$/, async () => {
   // TODO: implement keycloak register
-  await utils.navigateToPath('onboarding');
+  await utils.navigateToPath('');
+
+  // Wait for the DOM
+  await utils.waitForId("lxp-signup");
+
+  // Get button by ID then hit click
+  await utils.getById('lxp-signup').click();
+
+  // Wait for the DOM
+  await utils.waitForId("kc-form-options > div > span > a");
+
+  // Get button by ID then hit click
+  await utils.getById('kc-form-options > div > span > a').click();
+
+  // Wait for the DOM
+  await utils.waitForId("kc-page-title");
+
+  // Enter username
+  await utils.getById('username').sendKeys("mickey");
+
+  // Enter password
+  await utils.getById('password').sendKeys("mouse");
+
+  // Get button by ID then hit click on Log In button
+  await utils.getById('kc-login').click();
 });
 
 When(/^I navigate through the onboarding page$/, async () => {
