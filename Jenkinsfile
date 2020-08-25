@@ -71,10 +71,9 @@ pipeline {
                         keepAll: true,
                         reportDir: 'reports/',
                         reportFiles: 'index.html',
-                        reportName: 'System Test Report'
+                        reportName: 'System Test HTML Report'
                     ]
                     // 
-                    cucumber 'reports/json-output-folder/*.json'
                     // https://github.com/jenkinsci/cucumber-reports-plugin#automated-configuration
                     cucumber buildStatus: 'UNSTABLE',
                         failedFeaturesNumber: 1,
@@ -82,9 +81,9 @@ pipeline {
                         skippedStepsNumber: 1,
                         failedStepsNumber: 1,
                         reportTitle: 'System Test report',
-                        fileIncludePattern: 'reports/json-output-folder/*.json',
+                        fileIncludePattern: 'reports/*.json',
                         sortingMethod: 'ALPHABETICAL',
-                        trendsLimit: 100
+                        trendsLimit: 10
                 }
             }
         }

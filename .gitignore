@@ -6,7 +6,8 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/reports/**
+/reports/*.html
+/reports/*.json
 # dependencies
 /node_modules
 
@@ -40,6 +41,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+*.log
 
 # System Files
 .DS_Store
