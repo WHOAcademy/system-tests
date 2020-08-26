@@ -27,7 +27,7 @@ Then(/^I am shown all the courses$/, async () => {
   // get the category label
   // #courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label
 
-  expect(await page.getTheFirstCardLabel().getText()).to.equal('Category');
+  expect(await page.getTheFirstCardLabel().getText()).to.equal('CATEGORY');
 
   expect(await page.getAllCourses().count()).to.greaterThan(3);
 });
