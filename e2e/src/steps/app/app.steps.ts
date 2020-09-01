@@ -20,9 +20,9 @@ Given(/^I know the address of LXP$/, async () => {
 });
 
 When(/^I navigate to it$/, async () => {
-  await utils.waitForId("app > .home");
+  await utils.waitForId('app > .ld-page');
 });
 
 Then(/^I am displayed the landing page$/, async () => {
-  expect(await page.getTitleText()).to.contains('🐭Latest health knowledge and evidence');
+  expect(await page.getTitleText()).to.contains('Revolutionizing lifelong learning in health');
 });

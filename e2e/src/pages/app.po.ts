@@ -1,4 +1,4 @@
-import { browser, by, element, ElementFinder } from 'protractor';
+import { browser, by, element } from 'protractor';
 
 export class AppPage {
   navigateTo(): Promise<unknown> {
@@ -6,11 +6,12 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('#app > div.home > div > h2')).getText() as Promise<string>;
+    return element(
+      by.css('#app > div > div > div.ld-page__sec > div:nth-child(1) > div:nth-child(1) > div > h1')
+    ).getText() as Promise<string>;
   }
 
   // Show Courses
-
   getTheFirstCardLabel() {
     const selector = '#course-card-0 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1)';
     return element(by.css(selector));
