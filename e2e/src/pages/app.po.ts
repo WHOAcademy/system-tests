@@ -20,12 +20,4 @@ export class AppPage {
     const selector = '#courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label';
     return element.all(by.css(selector));
   }
-
-  // Onboarding
-
-  getOnBoardingTitleText(): Promise<string> {
-    return element(
-      by.css('#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div.ob-interes__main > h2')
-    ).getText() as Promise<string>;
-  }
 }

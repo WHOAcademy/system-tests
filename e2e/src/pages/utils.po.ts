@@ -64,20 +64,4 @@ export class Utils {
     // Get button by ID then hit click on Log In button
     return this.getById('kc-login').click();
   }
-
-  async clickBadge(badge: string): Promise<unknown> {
-    await this.getById(
-      `app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div.ob-interes__main > button:nth-child(${badge})`
-    ).click();
-
-    await this.waitForId('rate-skills-modal');
-
-    await this.getByCSS('.ob-dd__icon').click();
-
-    await this.waitForSelector('ul.show');
-
-    await this.getByCSS('ul > li:nth-child(1) > a').click();
-
-    return this.getBtnByText('Add').click();
-  }
 }
