@@ -24,6 +24,8 @@ export class AppPage {
   // Onboarding
 
   getOnBoardingTitleText(): Promise<string> {
-    return element(by.css('#app > div.about > div > h2')).getText() as Promise<string>;
+    return element(
+      by.css('#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div.ob-interes__main > h2')
+    ).getText() as Promise<string>;
   }
 }
