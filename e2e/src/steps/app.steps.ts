@@ -1,8 +1,8 @@
 import { Before, Given, Then, When, setDefaultTimeout } from 'cucumber';
 import { expect } from 'chai';
 
-import { Utils } from '../../pages/utils.po';
-import { AppPage } from '../../pages/app.po';
+import { Utils } from '../pages/utils.po';
+import { AppPage } from '../pages/app.po';
 
 // TODO: Move to global scope
 setDefaultTimeout(60 * 1000);
@@ -15,19 +15,27 @@ Before(() => {
   page = new AppPage();
 });
 
+Given(/^I know the address of LXP$/, async () => {
+  await page.navigateTo();
+});
+
+When(/^I navigate to it$/, async () => {
+  await utils.waitForId('app > .ld-page');
+});
+
+Then(/^I am displayed the landing page$/, async () => {
+  expect(await page.getTitleText()).to.contains('Revolutionizing lifelong learning in health');
+});
+
 Given(/^I'm an un-authenticated user$/, async () => {
   await utils.navigateToPath('');
 });
 
 When(/^I go to the landing page$/, async () => {
-  await utils.waitForId("course-card-0");
+  await utils.waitForId('course-card-0');
 });
 
 Then(/^I am shown all the courses$/, async () => {
-  // get the category label
-  // #courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label
-
   expect(await page.getTheFirstCardLabel().getText()).to.equal('CATEGORY');
-
-  expect(await page.getAllCourses().count()).to.greaterThan(3);
+  expect(await page.getAllCourses().count()).to.greaterThan(8);
 });

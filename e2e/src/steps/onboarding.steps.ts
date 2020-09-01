@@ -1,8 +1,8 @@
 import { Before, Given, Then, When, setDefaultTimeout } from 'cucumber';
 import { expect } from 'chai';
 
-import { Utils } from '../../pages/utils.po';
-import { OnboardingPage } from '../../pages/onboarding.po';
+import { Utils } from '../pages/utils.po';
+import { OnboardingPage } from '../pages/onboarding.po';
 
 // TODO: Move to global scope
 setDefaultTimeout(60 * 1000);

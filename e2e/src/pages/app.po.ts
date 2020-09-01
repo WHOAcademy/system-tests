@@ -18,7 +18,8 @@ export class AppPage {
   }
 
   getAllCourses() {
-    const selector = '#courses-section > .card-columns > .card > .row > .col-md-6 > .card-body > .card-label';
+    // #course-card-0
+    const selector = '.card';
     return element.all(by.css(selector));
   }
 }
