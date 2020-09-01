@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch",
     "e2e": "cucumber-js --require cucumber.conf.js --require e2e --format node_modules/cucumber-pretty --format json:reports/cucumber_report.json ",
     "e2e:all": "npm run e2e -- e2e/features/*",
     "e2e:ci": "export CI=true && npm run e2e:all",
@@ -13,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
     "chromedriver": "^84.0.1",
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "^5.2.0",

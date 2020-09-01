@@ -3,6 +3,7 @@ const geckodriver = require('geckodriver');
 
 module.exports = {
   src_folders: ['e2e'], //tests is a folder in workspace which has the step definitions
+  page_objects_path: 'e2e/pages',
   test_settings: {
     default: {
       webdriver: {
