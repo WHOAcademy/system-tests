@@ -33,7 +33,7 @@ export class Utils {
   }
 
   waitForSelector(selector: string) {
-    return browser.wait(ExpectedConditions.visibilityOf(this.getByCSS(`${selector}`)), 10000);
+    return browser.wait(ExpectedConditions.visibilityOf(this.getByCSS(`${selector}`)), 20000);
   }
 
   async login(): Promise<unknown> {

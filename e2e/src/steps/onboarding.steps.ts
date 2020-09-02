@@ -27,6 +27,14 @@ Given(/^There are topics in system$/, async () => {
   await utils.login();
 });
 
+Given(/^someone has just registered$/, async () => {
+  await utils.login();
+});
+
+When(/^they land on the onboarding page$/, async () => {
+  await utils.waitForId('app > .about');
+});
+
 When(/^I hit sign up button$/, async () => {
   // Wait for the DOM
   await utils.waitForId('lxp-signup');
@@ -37,14 +45,19 @@ When(/^I hit sign up button$/, async () => {
 
 When(/^I navigate through the onboarding process$/, async () => {
   await utils.waitForId('app > .about');
-  // todo check what layout vue is currently loaded
+  await obPage.addEducation();
+  await obPage.continueToSkills();
+  await utils.waitForSelector(
+    `.ob-interes__main > button:nth-child(4)`
+  );
 });
 
 When(/^I navigate through the onboarding process to topics$/, async () => {
-  // wait for skills to load
-  await utils.waitForSelector(
-    `#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div.ob-interes__main > button:nth-child(3)`
-  );
+  await utils.waitForId('app > .about');
+  await obPage.addEducation();
+  await obPage.continueToSkills();
+  await utils.waitForSelector(`.ob-interes__main > button:nth-child(4)`);
+
   await obPage.submitThreeSkills();
   await utils.getBtnByText('Next').click();
 });
@@ -60,7 +73,7 @@ Then(/^I am shown available topics$/, async () => {
 
 Then(/^I am shown available skills$/, async () => {
   await utils.waitForSelector(
-    `#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div.ob-interes__main > button:nth-child(3)`
+    `#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div.ob-interes__main > button:nth-child(4)`
   );
   expect(await obPage.getOnBoardingTitleText()).contains('Select a minimum of 3 skills');
 });
@@ -100,4 +113,12 @@ Then(/^I select three interests and sumbit$/, async () => {
       .getByCSS('#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.h-100 > h2')
       .getText()
   ).contains('Begin your learning');
+});
+
+Then(/^they are asked to submit their eductational background$/, async () => {
+  await obPage.addEducation();
+
+  await obPage.continueToSkills();
+
+  expect(await obPage.getOnBoardingTitleText()).contains('Select a minimum of 3 skills');
 });

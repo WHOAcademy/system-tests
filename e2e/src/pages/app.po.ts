@@ -13,12 +13,11 @@ export class AppPage {
 
   // Show Courses
   getTheFirstCardLabel() {
-    const selector = '#course-card-0 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1)';
+    const selector = '.courses-card__left > div > p';
     return element(by.css(selector));
   }
 
   getAllCourses() {
-    // #course-card-0
     const selector = '.card';
     return element.all(by.css(selector));
   }
