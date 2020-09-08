@@ -14,7 +14,7 @@ pipeline {
         // Config repo managed by ArgoCD details
         ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config.git"
         ARGOCD_CONFIG_REPO_PATH = "lxp-deployment/values-staging.yaml"
-        ARGOCD_CONFIG_REPO_BRANCH = "master"
+        ARGOCD_CONFIG_REPO_BRANCH = "who-int"
 
         // Credentials bound in OpenShift
         GIT_CREDS = credentials("${OPENSHIFT_BUILD_NAMESPACE}-git-auth")
@@ -116,7 +116,7 @@ pipeline {
 
                     git add ${ARGOCD_CONFIG_REPO_PATH}
                     # grabbing the error code incase there is nothing to commit and allow jenkins proceed
-                    git commit -m "🚀 AUTOMATED COMMIT - Deployment new app version ${VERSION} 🚀" || rc=$?
+                    git commit -m "🚀 AUTOMATED COMMIT - Deployment of ${APP_NAME} at version ${VERSION} 🚀" || rc=$?
                     git remote set-url origin  https://${GIT_CREDS_USR}:${GIT_CREDS_PSW}@${ARGOCD_CONFIG_REPO}
                     git push -u origin ${ARGOCD_CONFIG_REPO_BRANCH}
                 '''
