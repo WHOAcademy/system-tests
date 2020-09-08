@@ -34,7 +34,7 @@ pipeline {
         stage("system tests") {
             agent {
                 node {
-                    label "jenkins-slave-npm"
+                    label "jenkins-agent-npm"
                 }
             }
             steps {
@@ -93,7 +93,7 @@ pipeline {
         stage("Promote to Staging") {
             agent {
                 node {
-                    label "jenkins-slave-argocd"
+                    label "jenkins-agent-argocd"
                 }
             }
             when {
