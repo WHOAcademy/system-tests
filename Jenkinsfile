@@ -97,7 +97,7 @@ pipeline {
                 }
             }
             when {
-                expression { GIT_BRANCH ==~ /(.*master)/ }
+                expression { GIT_BRANCH.startsWith("master") }
             }
             options {
                 skipDefaultCheckout(true)
