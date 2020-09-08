@@ -24,7 +24,7 @@ When(/^I navigate to it$/, async () => {
 });
 
 Then(/^I am displayed the landing page$/, async () => {
-  expect(await page.getTitleText()).to.contains('Revolutionizing lifelong learning in health');
+  expect(await page.getTitleText()).to.contains('Welcome to WHO Academy');
 });
 
 Given(/^I'm an un-authenticated user$/, async () => {

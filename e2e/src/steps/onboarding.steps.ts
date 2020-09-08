@@ -37,10 +37,10 @@ When(/^they land on the onboarding page$/, async () => {
 
 When(/^I hit sign up button$/, async () => {
   // Wait for the DOM
-  await utils.waitForId('lxp-signup');
+  await utils.waitForSelector('.ld-sec__one-left');
 
   // Get button by ID then hit click
-  await utils.getById('lxp-signup').click();
+  await utils.getBtnByText("signup").click();
 });
 
 When(/^I navigate through the onboarding process$/, async () => {
@@ -68,6 +68,9 @@ Then(/^I am taken to sign up page$/, async () => {
 });
 
 Then(/^I am shown available topics$/, async () => {
+  await utils.waitForSelector(
+    `#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div.ob-interes__main > div:nth-child(3) > button:nth-child(4)`
+  );
   expect(await obPage.getOnBoardingTitleText()).contains('Select a minimum of 3 interests');
 });
 
@@ -87,32 +90,40 @@ Then(/^I select three and sumbit$/, async () => {
 
   // check im on the success page
   await utils.waitForSelector(
-    '#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.h-100 > h2'
+    '#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.ob-content__div > h2'
   );
-
+  
   expect(
     await utils
-      .getByCSS('#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.h-100 > h2')
+      .getByCSS('#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.ob-content__div > h2')
       .getText()
   ).contains('Well done you have setup your skills');
 });
 
 Then(/^I select three interests and sumbit$/, async () => {
-  await utils.getBtnByText('Leadership').click();
-  await utils.getBtnByText('Management').click();
-  await utils.getBtnByText('Administration').click();
+  await utils.waitForSelector('#app .ob-interes__main > div:nth-child(3) > button:nth-child(1)');
+  await utils.getByCSS('#app .ob-interes__main > div:nth-child(3) > button:nth-child(1)').click();
+
+  await utils.waitForSelector('#app .ob-interes__main > div:nth-child(3) > button:nth-child(2)');
+  await utils.getByCSS('#app .ob-interes__main > div:nth-child(3) > button:nth-child(2)').click();
+
+  await utils.waitForSelector('#app .ob-interes__main > div:nth-child(3) > button:nth-child(3)');
+  await utils.getByCSS('#app .ob-interes__main > div:nth-child(3) > button:nth-child(3)').click();
+
+  await utils.waitForSelector('#app .ob-interes__main > div:nth-child(3) > button:nth-child(4)');
+  await utils.getByCSS('#app .ob-interes__main > div:nth-child(3) > button:nth-child(4)').click();
 
   await utils.getBtnByText('Next').click();
 
   await utils.waitForSelector(
-    '#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.h-100 > h2'
+    '#app .ob-success__content > h2'
   );
 
   expect(
     await utils
-      .getByCSS('#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.h-100 > h2')
+      .getByCSS('#app .ob-success__content > h2')
       .getText()
-  ).contains('Begin your learning');
+  ).contains('Onboarding completed!');
 });
 
 Then(/^they are asked to submit their eductational background$/, async () => {

@@ -3,7 +3,7 @@ exports.config = {
   specs: ['./src/features/**/*.feature'],
   capabilities: {
     shardTestFiles: true,
-    browserName: 'chrome'
+    browserName: 'firefox'
   },
   directConnect: true,
   baseUrl: 'http://localhost:8080/',

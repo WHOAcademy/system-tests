@@ -36,7 +36,7 @@ export class OnboardingPage {
     await utils.getBtnByText('Next').click();
 
     return utils.waitForSelector(
-      '#app > div > div > div > div > div > div.p-0.h-100.col-8 > div > div > div > div.d-flex.h-100 > h2'
+      '#app .ob-content__div > h2'
     );
   }
 

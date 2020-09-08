@@ -1,7 +1,7 @@
 Feature: Onboarding
   Sign me up and steal all my info
 
-  Scenario: sign up from the nav bar button
+  Scenario: sign up from the home page button
     Given I go to LXP
     When I hit sign up button
     Then I am taken to sign up page

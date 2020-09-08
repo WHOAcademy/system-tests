@@ -41,10 +41,10 @@ export class Utils {
     await this.navigateToPath('');
 
     // Wait for the DOM
-    await this.waitForId('lxp-signup');
+    await this.waitForSelector('.ld-sec__one-left');
 
     // Get button by ID then hit click
-    await this.getById('lxp-signup').click();
+    await this.getBtnByText("signup").click();
 
     // Wait for the DOM
     await this.waitForId('kc-form-options > div > span > a');
