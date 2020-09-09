@@ -63,7 +63,7 @@ When(/^I navigate through the onboarding process to topics$/, async () => {
 });
 
 Then(/^I am taken to sign up page$/, async () => {
-  expect(await utils.getUrlPath()).to.contain('keycloak');
+  expect(await utils.getUrlPath()).to.contain('sso');
   expect(await utils.getById('kc-page-title').getText()).to.equal('Register');
 });
 
