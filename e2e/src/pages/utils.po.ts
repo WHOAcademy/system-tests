@@ -44,16 +44,16 @@ export class Utils {
     await this.waitForSelector('.ld-sec__one-left');
 
     // Get button by ID then hit click
-    await this.getBtnByText("signup").click();
+    await this.getBtnByText("login").click();
 
     // Wait for the DOM
-    await this.waitForId('kc-form-options > div > span > a');
+    // await this.waitForId('kc-form-options > div > span > a');
 
     // Get button by ID then hit click
-    await this.getById('kc-form-options > div > span > a').click();
+    // await this.getById('kc-form-options > div > span > a').click();
 
     // Wait for the DOM
-    await this.waitForId('kc-page-title');
+    await this.waitForSelector('.login-sec .login-right__div');
 
     // Enter username
     await this.getById('username').sendKeys('mickey');
