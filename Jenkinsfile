@@ -19,7 +19,12 @@ pipeline {
         // ARGOCD_CONFIG_REPO_BRANCH = "master"
 
         // PROD Cluster
-        ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config-prod.git"
+        // ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config-prod.git"
+        // ARGOCD_CONFIG_REPO_PATH = "lxp-deployment/values-staging.yaml"
+        // ARGOCD_CONFIG_REPO_BRANCH = "main"
+
+        // Dev Cluster
+        ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config-dev.git"
         ARGOCD_CONFIG_REPO_PATH = "lxp-deployment/values-staging.yaml"
         ARGOCD_CONFIG_REPO_BRANCH = "main"
 
@@ -111,11 +116,11 @@ pipeline {
             }
             steps {
                 sh  '''
-                    git clone https://${ARGOCD_CONFIG_REPO} config-repo
+                    git clone https://${GIT_CREDS_USR}:${GIT_CREDS_PSW}@${ARGOCD_CONFIG_REPO} config-repo
                     cd config-repo
                     git checkout ${ARGOCD_CONFIG_REPO_BRANCH}
 
-                    yq w -i ${ARGOCD_CONFIG_REPO_PATH} "applications.name==${APP_NAME}.source_ref" ${VERSION}
+                    yq e '(.applications.[] |= select(.name == env(APP_NAME)) |= .source_ref = env(VERSION)' -i $ARGOCD_CONFIG_REPO_PATH
 
                     git config --global user.email "jenkins@rht-labs.bot.com"
                     git config --global user.name "Jenkins"
