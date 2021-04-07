@@ -2,7 +2,7 @@
   "name": "lxp-system-tests",
   "version": "0.0.0",
   "scripts": {
-    "e2e": "export E2E_TEST_ROUTE=test-learning-experience-platform-labs-test.apps.who.emea-2.rht-labs.com && ng e2e",
+    "e2e": "export E2E_TEST_ROUTE=test-learning-experience-platform-labs-test.apps.dev.lxp.academy.who.int && ng e2e",
     "e2e:headless": "export E2E_TEST_ROUTE=localhost:8080 && ng e2e --protractor-config e2e/protractor.conf.headless.js ",
     "e2e:ci": "ng e2e --protractor-config e2e/protractor.conf.ci.js "
   },
