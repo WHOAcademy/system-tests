@@ -36,6 +36,6 @@ When(/^I go to the landing page$/, async () => {
 });
 
 Then(/^I am shown all the courses$/, async () => {
-  expect(await page.getTheFirstCardLabel().getText()).to.equal('Risk Management');
-  expect(await page.getAllCourses().count()).to.greaterThan(3);
+  expect(await page.getTheFirstCardLabel().getText()).to.equal('Category');
+  expect(await page.getAllCourses().count()).to.greaterThan(1);
 });
