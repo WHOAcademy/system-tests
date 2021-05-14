@@ -13,7 +13,7 @@ export class AppPage {
 
   // Show Courses
   getTheFirstCardLabel() {
-    const selector = '.courses-card__left > div > p';
+    const selector = '.courses-card__sec1 .lxp-card__content .card-label';
     return element(by.css(selector));
   }
 
