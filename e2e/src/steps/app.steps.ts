@@ -24,7 +24,7 @@ When(/^I navigate to it$/, async () => {
 });
 
 Then(/^I am displayed the landing page$/, async () => {
-  expect(await page.getTitleText()).to.contains('Welcome to WHO Academy');
+  expect(await page.getTitleText()).to.contains('Welcome to the WHO Academy');
 });
 
 Given(/^I'm an un-authenticated user$/, async () => {
@@ -32,10 +32,10 @@ Given(/^I'm an un-authenticated user$/, async () => {
 });
 
 When(/^I go to the landing page$/, async () => {
-  await utils.waitForId('course-card-0');
+  await utils.waitForId('app .ld-page');
 });
 
-Then(/^I am shown all the courses$/, async () => {
-  expect(await page.getTheFirstCardLabel().getText()).to.equal('Category');
-  expect(await page.getAllCourses().count()).to.greaterThan(1);
+Then(/^I am shown login and signup buttons$/, async () => {
+  expect(await utils.getBtnByText("signup"));
+  expect(await utils.getBtnByText("login"));
 });
