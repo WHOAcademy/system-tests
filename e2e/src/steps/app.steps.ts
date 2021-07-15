@@ -20,7 +20,7 @@ Given(/^I know the address of LXP$/, async () => {
 });
 
 When(/^I navigate to it$/, async () => {
-  await utils.waitForId('app .ld-page');
+  await utils.waitForId('app .h-100 .ld-page');
 });
 
 Then(/^I am displayed the landing page$/, async () => {
@@ -32,7 +32,7 @@ Given(/^I'm an un-authenticated user$/, async () => {
 });
 
 When(/^I go to the landing page$/, async () => {
-  await utils.waitForId('app .ld-page');
+  await utils.waitForId('app .h-100 .ld-page');
 });
 
 Then(/^I am shown login and signup buttons$/, async () => {
