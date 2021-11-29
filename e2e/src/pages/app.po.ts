@@ -7,7 +7,7 @@ export class AppPage {
 
   getTitleText(): Promise<string> {
     return element(
-      by.css('#app > div > div > div > div > div.row.ld-page__one > div.d-flex.justify-content-center.align-items-center.col > div > h1')
+      by.css('#app > h1') // TODO: add a test-id to the `h1`
     ).getText() as Promise<string>;
   }
 
