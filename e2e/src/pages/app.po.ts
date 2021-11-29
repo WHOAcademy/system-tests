@@ -7,7 +7,7 @@ export class AppPage {
 
   getTitleText(): Promise<string> {
     return element(
-      by.css('#app > h1') // TODO: add a test-id to the `h1`
+      by.css('#app  h1') // TODO: add a test-id to the `h1`
     ).getText() as Promise<string>;
   }
 
