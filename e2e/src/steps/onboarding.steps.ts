@@ -64,7 +64,7 @@ When(/^I navigate through the onboarding process to topics$/, async () => {
 
 Then(/^I am taken to sign up page$/, async () => {
   expect(await utils.getUrlPath()).to.contain('sso');
-  expect(await utils.getByCSS(`.login-right__div .login-right__heading h5:nth-child(2)`).getText()).to.equal('Sign up');
+  expect(await utils.getByCSS(`.login-right__div .login-right__heading h5`).getText()).to.equal('Sign up');
 });
 
 Then(/^I am shown available topics$/, async () => {
