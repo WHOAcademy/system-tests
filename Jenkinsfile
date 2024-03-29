@@ -24,7 +24,7 @@ pipeline {
         // ARGOCD_CONFIG_REPO_BRANCH = "main"
 
         // Dev Cluster
-        ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config-dev.git"
+        ARGOCD_CONFIG_REPO = "github.com/WHOAcademy/lxp-config-develop.git"
         ARGOCD_CONFIG_REPO_PATH = "lxp-deployment/values-staging.yaml"
         ARGOCD_CONFIG_REPO_BRANCH = "main"
 
