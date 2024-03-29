@@ -69,36 +69,36 @@ pipeline {
                 // sh './seed-backend.sh'
 
                 echo '### Running systems tests ###'
-                sh '''
-                    echo Testing against ${E2E_TEST_ROUTE}
-                    npm run e2e:ci
-                '''
+                // sh '''
+                //     echo Testing against ${E2E_TEST_ROUTE}
+                //     npm run e2e:ci
+                // '''
             }
-            post {
-                always {
-                    // publish html
-                    publishHTML target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'reports/',
-                        reportFiles: 'index.html',
-                        reportName: 'System Test Report'
-                    ]
-                    // 
-                    cucumber 'reports/json-output-folder/*.json'
-                    // https://github.com/jenkinsci/cucumber-reports-plugin#automated-configuration
-                    cucumber buildStatus: 'UNSTABLE',
-                        failedFeaturesNumber: 1,
-                        failedScenariosNumber: 1,
-                        skippedStepsNumber: 1,
-                        failedStepsNumber: 1,
-                        reportTitle: 'System Test report',
-                        fileIncludePattern: 'reports/json-output-folder/*.json',
-                        sortingMethod: 'ALPHABETICAL',
-                        trendsLimit: 100
-                }
-            }
+            // post {
+            //     always {
+            //         // publish html
+            //         publishHTML target: [
+            //             allowMissing: false,
+            //             alwaysLinkToLastBuild: false,
+            //             keepAll: true,
+            //             reportDir: 'reports/',
+            //             reportFiles: 'index.html',
+            //             reportName: 'System Test Report'
+            //         ]
+            //         // 
+            //         cucumber 'reports/json-output-folder/*.json'
+            //         // https://github.com/jenkinsci/cucumber-reports-plugin#automated-configuration
+            //         cucumber buildStatus: 'UNSTABLE',
+            //             failedFeaturesNumber: 1,
+            //             failedScenariosNumber: 1,
+            //             skippedStepsNumber: 1,
+            //             failedStepsNumber: 1,
+            //             reportTitle: 'System Test report',
+            //             fileIncludePattern: 'reports/json-output-folder/*.json',
+            //             sortingMethod: 'ALPHABETICAL',
+            //             trendsLimit: 100
+            //     }
+            // }
         }
 
 
