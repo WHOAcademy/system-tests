@@ -120,7 +120,7 @@ pipeline {
                     cd config-repo
                     git checkout ${ARGOCD_CONFIG_REPO_BRANCH}
 
-                    yq e '(.applications.[] |= select(.name == env(APP_NAME)) |= .source_ref = env(VERSION)' -i $ARGOCD_CONFIG_REPO_PATH
+                    yq e '(.applications.[] |= select(.name == env(APP_NAME)) |= .source_ref = env(VERSION))' -i $ARGOCD_CONFIG_REPO_PATH
 
                     git config --global user.email "jenkins@rht-labs.bot.com"
                     git config --global user.name "Jenkins"
