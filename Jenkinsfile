@@ -46,7 +46,7 @@ pipeline {
         stage("system tests") {
             agent {
                 node {
-                    label "jenkins-agent-npm"
+                    label "jenkins-agent-node-12"
                 }
             }
             steps {
